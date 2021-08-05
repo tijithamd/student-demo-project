@@ -1,0 +1,29 @@
+body {
+	background-color:rgb(80, 131, 169);
+}
+
+.heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: bold;
+	font-size: 20px;
+	color: #ffffff;
+}
+
+label {
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: bold;
+	color: rgb(0, 255, 128);
+}
+
+#failure {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;	
+	color: #FF0000;
+	text-align: center;
+}
+
+.student_result {
+	color:rgb(255, 255, 255);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}

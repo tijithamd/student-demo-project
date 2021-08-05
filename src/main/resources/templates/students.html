@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>:: Students Page ::</title>
+		<link rel="stylesheet" href="/css/students.css">	
+				
+		<script>
+			function validate(form) {
+				var studId = form.studId;
+				
+				if(studId.value.trim() == '') {
+					document.getElementById("failure").innerText = 'Please Enter valid student Id and try again...';
+					studId.focus();
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table align="center" width="500">
+			<tr>
+				<tr height="200"><td></td></tr>
+				<td>
+					<fieldset>
+						<legend class="heading">Student's Details</legend>
+						<form method="GET" action = "/student/view" onSubmit = "return validate(this);">
+							<table align="center" border="0" cellspacing="10">
+								<tr><td><label>Student ID:</label></td> <td><input type="text" name="studId"></td><td><input type="submit" value="Search"> &nbsp; <input type="reset" value="Reset"></tr>
+								<tr><td colspan="3"><div id="failure"/></td></tr>
+							</table>
+						</form>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

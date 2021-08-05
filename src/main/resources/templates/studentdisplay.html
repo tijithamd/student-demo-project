@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>:: Students Details Page ::</title>
+		<link rel="stylesheet" href="/css/students.css">	
+	</head>
+	<body>
+		<table align="center" border="0" width="500">
+			<tr>
+				<tr height="200"><td></td></tr>
+				<td>
+					<fieldset>
+						<legend class="heading">Student's Details View</legend>
+						<div th:if="${success}">
+							<table border="0" width="500" cellspacing="10" class="student_result">
+								<tr><td width="75">	<label>ID:</label>				</td> <td th:text="${student.id}">		</td> </tr>
+								<tr><td>			<label>Name:</label>			</td> <td th:text="${student.name}">	</td> </tr>
+								<tr><td>			<label>City:</label>			</td> <td th:text="${student.city}">	</td> </tr>
+								<tr><td>			<label>Country:</label>			</td> <td th:text="${student.country}">	</td> </tr>
+								<tr><td colspan="2" align="center" height="50"><input type="button" value="<< Go Back" onClick="history.go(-1)"></td></tr>
+							</table>
+						</div>
+						<div align="center" th:unless="${success}">
+				   			<div id="failure" th:text="${message}"/>
+						</div>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
