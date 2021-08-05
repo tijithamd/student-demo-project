@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>:: Students Create Page ::</title>
+		<link rel="stylesheet" href="/css/students.css">
+	</head>
+	<body>
+		<table align="center" width="500" border="0">
+			<tr height="200"><td></td></tr>
+			<tr>
+				<td>
+					<fieldset>
+						<legend class="heading">Student Create New</legend>
+						
+						<div th:if="${success}">
+							<div id="success" th:text="${message}"/>
+							<br>
+							<center><input type="button" value="<< Go Back" onClick="history.go(-1)"></center>
+						</div>
+						<div align="center" th:unless="${success}">
+							<form method="POST" action="/student/create">
+								<table align="center" border="0" cellspacing="10">
+									<tr><td><label>Name:</label></td> <td><input type="text" name="name"></td></tr>
+									<tr><td><label>Gender:</label></td>
+										<td>
+											<input type="radio" name="gender" checked><label>Male</label> 
+											<input type="radio" name="gender"><label>Female</label> 
+										</td>
+									</tr>
+									<tr><td><label>City:</label></td> <td><input type="text" name="city"></td></tr>
+									<tr><td><label>Country:</label></td> 
+										<td>
+											<select name="country"> 
+												<option>INDIA</option>
+												<option selected>UNITED STATES</option>
+												<option>UNITES KINGDOM</option>
+											</select>
+										</td>
+									</tr>
+									<tr><td><label>Email:</label></td> <td><input type="text" name="email"></tr>
+									<tr><td colspan="2" align="right"><input type="submit" value="Submit">&nbsp;<input type="reset" value="Reset"></td></tr>
+								</table>
+							</form>
+						</div>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
