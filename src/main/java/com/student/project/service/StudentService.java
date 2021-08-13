@@ -1,6 +1,7 @@
 package com.student.project.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,9 +25,20 @@ public class StudentService {
 		return s;
 	}
 	
+	public List<Student> viewAll() {
+		List<Student> students = studentRepository.viewall();
+		return students;
+	}
+	
 	public Student create(Student student) {
 		student.setCreatedTime(new Date());
 		student.setLastUpdatedTime(new Date());
 		return studentRepository.create(student);
 	}
+	
+	public Student update(Student student) {
+		student.setLastUpdatedTime(new Date());
+		return studentRepository.update(student);
+	}
+	
 }

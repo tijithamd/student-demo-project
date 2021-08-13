@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>:: Students List Page ::</title>
+		<link rel="stylesheet" href="/css/students.css">
+		<script src= "/js/students.js"></script>
+		<script>
+			function validate(form) {
+				var studId = form.studId;
+				
+				if(isEmpty(studId)) {
+					document.getElementById("failure").innerText = 'Please Enter valid student Id and try again...';
+					studId.focus();
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table align="center" width="500" border="0">
+			<tr height="200"><td></td></tr>
+			<tr>
+				<td>
+					<table border="0" width="800" cellspacing="10" class="table_border"> 
+						<tr><td colspan="5"><div id="failure"/></td></tr>
+						<tr>
+							<td>
+								<form action="/student/home" method="GET"><input type="submit" value="Refresh"></form>
+							</td>
+							
+							<td> 
+								<form action="/student/new" method="GET"><input type="submit" value="Create New"></form>
+							</td>
+							
+							<td width="200"></td>
+							
+							<td align="right">
+								<form method="GET" action = "/student/display" onSubmit="return validate(this);">
+									<label>Student ID:</label><input type="text" name="id"><input type="submit" value="Search">
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table align="center" border="0" width="800" cellspacing="10" class="student_list table_border">
+						<tr>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Gender</th>
+							<th>Phone</th>
+							<th>City</th>
+							<th>Country</th>
+							<th>Zip</th>
+						</tr>
+						<tr th:each="student : ${students}">
+							<td><a th:href="@{'/student/edit?id=' + ${student.id}}">Edit</a></td>
+							<td th:text="${student.firstname}"> </td>
+							<td th:text="${student.lastname}"> 	</td>
+							<td th:text="${student.gender}"> 	</td>
+							<td th:text="${student.phone}">		</td>
+							<td th:text="${student.city}">	 	</td>
+							<td th:text="${student.country}"> 	</td>
+							<td th:text="${student.zip}"> 		</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+

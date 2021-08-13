@@ -5,22 +5,38 @@
 	</head>
 	<body>
 		<table align="center" border="0" width="500">
+			<tr height="200"><td></td></tr>
 			<tr>
-				<tr height="200"><td></td></tr>
 				<td>
 					<fieldset>
 						<legend class="heading">Student's Details View</legend>
 						<div th:if="${success}">
-							<table border="0" width="500" cellspacing="10" class="student_result">
-								<tr><td width="75">	<label>ID:</label>				</td> <td th:text="${student.id}">		</td> </tr>
-								<tr><td>			<label>Name:</label>			</td> <td th:text="${student.name}">	</td> </tr>
-								<tr><td>			<label>City:</label>			</td> <td th:text="${student.city}">	</td> </tr>
-								<tr><td>			<label>Country:</label>			</td> <td th:text="${student.country}">	</td> </tr>
-								<tr><td colspan="2" align="center" height="50"><input type="button" value="<< Go Back" onClick="history.go(-1)"></td></tr>
-							</table>
+							<form method="GET" action="/student/edit">
+								<input type="hidden" th:field="${student.id}">
+								<table border="0" width="500" cellspacing="10" class="student_result">
+									<tr><td><label>ID:</label>				</td> <td th:text="${student.id}">			</td> </tr>
+									<tr><td><label>First Name:</label>		</td> <td th:text="${student.firstname}">	</td> </tr>
+									<tr><td><label>Last Name:</label>		</td> <td th:text="${student.lastname}">	</td> </tr>
+									<tr><td><label>Gender:</label>			</td> <td th:text="${student.gender}">		</td> </tr>
+									<tr><td><label>Email:</label>			</td> <td th:text="${student.email}">		</td> </tr>
+									<tr><td><label>Phone:</label>			</td> <td th:text="${student.phone}">		</td> </tr>
+									<tr><td><label>Address:</label>			</td> <td th:text="${student.address}">		</td> </tr>
+									<tr><td><label>City:</label>			</td> <td th:text="${student.city}">		</td> </tr>
+									<tr><td><label>Country:</label>			</td> <td th:text="${student.country}">		</td> </tr>
+									<tr><td><label>Zip Code:</label>		</td> <td th:text="${student.zip}">			</td> </tr>
+									<tr>
+										<td></td>
+										<td align="left">
+											<input type="button" value="<< Back" onClick="history.go(-1)">
+											<input type="submit" value="Edit">
+										</td>
+									</tr>
+								</table>
+							</form>
 						</div>
 						<div align="center" th:unless="${success}">
 				   			<div id="failure" th:text="${message}"/>
+				   			<input type="button" value="<< Back" onClick="history.go(-1)">
 						</div>
 					</fieldset>
 				</td>

@@ -52,7 +52,7 @@ public class HibernateConfiguration {
 	   Properties hibernateProperties = new Properties();
 	   hibernateProperties.put("hibernate.dialect", DIALECT);
 	   hibernateProperties.put("hibernate.show_sql", "true");
-	   hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
+	   //hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
 	   sessionFactory.setHibernateProperties(hibernateProperties);
 	
 	   return sessionFactory;

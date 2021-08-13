@@ -18,8 +18,17 @@ public class Student {
 	@Column(name = "ID")
 	private int id;
 	
-	@Column(name = "NAME")
-	private String name;
+	@Column(name = "FIRSTNAME")
+	private String firstname;
+	
+	@Column(name = "LASTNAME")
+	private String lastname;
+	
+	@Column(name = "GENDER")
+	private String gender;
+	
+	@Column(name = "ADDRESS")
+	private String address;
 	
 	@Column(name = "CITY")
 	private String city;
@@ -27,27 +36,20 @@ public class Student {
 	@Column(name = "COUNTRY")
 	private String country;
 	
+	@Column(name = "ZIP")
+	private int zip;
+	
+	@Column(name = "EMAIL")
+	private String email;
+	
+	@Column(name = "PHONE")
+	private String phone;
+	
 	@Column(name = "CREATEDTIME")
 	private Date createdTime;
 	
 	@Column(name = "LASTUPDATEDTIME")
 	private Date lastUpdatedTime;
-
-	public Date getCreatedTime() {
-		return createdTime;
-	}
-
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
-	}
-
-	public Date getLastUpdatedTime() {
-		return lastUpdatedTime;
-	}
-
-	public void setLastUpdatedTime(Date lastUpdatedTime) {
-		this.lastUpdatedTime = lastUpdatedTime;
-	}
 
 	public int getId() {
 		return id;
@@ -57,12 +59,36 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCity() {
@@ -80,9 +106,53 @@ public class Student {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
+
+	public int getZip() {
+		return zip;
+	}
+
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public Date getLastUpdatedTime() {
+		return lastUpdatedTime;
+	}
+
+	public void setLastUpdatedTime(Date lastUpdatedTime) {
+		this.lastUpdatedTime = lastUpdatedTime;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", city=" + city + ", country=" + country + "]";
+		return "Student [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", gender=" + gender
+				+ ", address=" + address + ", city=" + city + ", country=" + country + ", email=" + email + ", phone="
+				+ phone + ", createdTime=" + createdTime + ", lastUpdatedTime=" + lastUpdatedTime + "]";
 	}
+
+	
 }

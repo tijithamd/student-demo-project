@@ -29,8 +29,41 @@ label {
 	text-align: center;
 }
 
+
+.student_list {
+	color:rgb(255, 255, 255);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+.student_list th {
+	text-align: left;
+	font-style: bold;
+	color: rgb(0, 255, 128);
+}
+
+.student_list a {
+	text-align: left;
+	font-style: bold;
+	color: rgb(128, 255, 255);
+}
+
 .student_result {
 	color:rgb(255, 255, 255);
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
+}
+
+.student_result input[type=text] {
+	width: 200px;
+}
+
+.student_result select {
+	width: 200px;
+}
+
+.table_border {
+	border-style: solid;
+	border-width: 1px;
+	border-color: lightgrey;
 }

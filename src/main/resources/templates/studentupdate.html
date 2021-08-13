@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>:: Student Edit Page ::</title>
+		<link rel="stylesheet" href="/css/students.css">
+		<script src= "/js/students.js"></script>
+	</head>
+	<body>
+		<table align="center" border="0" width="500">
+			<tr height="200"><td></td></tr>
+			<tr>
+				<td>
+					<fieldset>
+						<legend class="heading">Student's Details Edit</legend>
+						<div align="center" th:if="${success}">
+							<form method="POST" action="/student/update">
+								<input type="hidden" th:field="${student.id}">
+								<table border="0" width="500" cellspacing="10" class="student_result">
+									<tr><td><label>First Name:</label></td> <td><input type="text" th:field="${student.firstname}" onkeypress="return isAlphabet(event.charCode);"></td></tr>
+									<tr><td><label>Last Name:</label></td> <td><input type="text" th:field="${student.lastname}" onkeypress="return isAlphabet(event.charCode);"></td></tr>
+									<tr><td><label>Gender:</label></td> 
+										<td>			
+											<input type="radio" name="gender" value="Male" th:checked="${student.gender} == 'Male'" ><label>Male</label> 
+											<input type="radio" name="gender" value="Female" th:checked="${student.gender} == 'Female'" ><label>Female</label> 
+										</td> 
+									</tr>
+									<tr><td><label>Email:</label></td> <td><input type="text" th:field="${student.email}"></td></tr>
+									<tr><td><label>Phone:</label></td> <td><input type="text" th:field="${student.phone}"></td></tr>
+									<tr><td><label>Address:</label></td> <td><input type="text" th:field="${student.address}"></td></tr>
+									<tr><td><label>City:</label></td> <td><input type="text" th:field="${student.city}"></td></tr>
+									<tr><td><label>Country:</label></td> 
+										<td>			
+											<select name="country"> 
+												<option>INDIA</option>
+												<option selected>UNITED STATES</option>
+												<option>UNITES KINGDOM</option>
+											</select> 
+										 </td> 
+									</tr>
+									<tr><td><label>Zip Code:</label></td> <td><input type="text" th:field="${student.zip}" maxlength="6" onkeypress="return isDigit(event.charCode);"></td></tr>
+									<tr>
+										<td></td>
+										<td align="left">
+											<input type="button" value="<< Back" onClick="history.go(-1)">
+											<input type="submit" value="Update">
+											<input type="reset" value="Reset">
+										</td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div align="center" th:if="${update}">
+				   			<div id="success" th:text="${message}"/>
+				   			<input type="button" value="<< Back" onClick="history.go(-1)">
+						</div>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -2,12 +2,12 @@
 	<head>
 		<title>:: Students Page ::</title>
 		<link rel="stylesheet" href="/css/students.css">	
-				
+		<script src= "/js/students.js"></script>
 		<script>
 			function validate(form) {
 				var studId = form.studId;
 				
-				if(studId.value.trim() == '') {
+				if(isEmpty(studId)) {
 					document.getElementById("failure").innerText = 'Please Enter valid student Id and try again...';
 					studId.focus();
 					return false;
@@ -33,7 +33,20 @@
 			</tr>
 			<tr height="50">
 				<td align="center">
-					<form action="/student/new" method="GET"><input type="submit" value="Create New Student"></form>
+					<table> 
+						<tr>
+							<td> 
+								<form action="/student/new" method="GET">
+									<input type="submit" value="Create New Student">
+								</form>
+							</td>
+							<td>
+								<form action="/student/viewall" method="GET">
+									<input type="submit" value="View All">
+								</form>
+							</td>
+						</tr>
+					</table>
 				</td>
 			</tr>
 		</table>

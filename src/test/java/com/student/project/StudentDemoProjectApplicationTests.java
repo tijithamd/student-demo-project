@@ -1,5 +1,7 @@
 package com.student.project;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +19,7 @@ class StudentDemoProjectApplicationTests {
 	@Autowired
 	private StudentService studentService;
 	
-	@Test
+	//@Test
 	public void view() throws Exception {
 		Student s = studentService.view(10);
 		System.out.println(s);
@@ -26,9 +28,17 @@ class StudentDemoProjectApplicationTests {
 	//@Test
 	public void create() {
 		Student s = new Student();
-		s.setName("Arjun");
+//		s.setName("Arjun");
 		s.setCity("Chennai");
 		s.setCountry("India");
 		studentService.create(s);
+	}
+	
+	//@Test
+	public void viewall() {
+		List<Student> students = studentRepository.viewall();
+		for (Student student : students) {
+			System.out.println(student);
+		}
 	}
 }

@@ -1,9 +1,10 @@
 package com.student.project.Repositories;
 
-import org.hibernate.Transaction;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,12 +26,29 @@ public class StudentRepository {
 		return query.uniqueResult();
 	}
 	
+	public List<Student> viewall() {
+		
+		Session session = this.sessionFactory.openSession();
+		
+		Query<Student> query = session.createQuery("Select s from Student s");
+		return query.list();
+	}
 	
 	public Student create(Student student) {
 		
 		Session session = this.sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(student);
+		transaction.commit();
+		
+		return student;
+	}
+	
+	public Student update(Student student) {
+		
+		Session session = this.sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.update(student);
 		transaction.commit();
 		
 		return student;

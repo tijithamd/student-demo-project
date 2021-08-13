@@ -2,6 +2,7 @@
 	<head>
 		<title>:: Students Create Page ::</title>
 		<link rel="stylesheet" href="/css/students.css">
+		<script src= "/js/students.js"></script>
 	</head>
 	<body>
 		<table align="center" width="500" border="0">
@@ -18,16 +19,20 @@
 						</div>
 						<div align="center" th:unless="${success}">
 							<form method="POST" action="/student/create">
-								<table align="center" border="0" cellspacing="10">
-									<tr><td><label>Name:</label></td> <td><input type="text" name="name"></td></tr>
-									<tr><td><label>Gender:</label></td>
+								<table border="0" width="500" cellspacing="10" class="student_result">
+									<tr><td><label>First Name:</label>		</td> <td><input type="text" name="firstname" onkeypress="return isAlphabet(event.charCode);"></td></tr>
+									<tr><td><label>Last Name:</label>		</td> <td><input type="text" name="lastname"  onkeypress="return isAlphabet(event.charCode);"></td></tr>
+									<tr><td><label>Gender:</label>			</td> 
 										<td>
-											<input type="radio" name="gender" checked><label>Male</label> 
-											<input type="radio" name="gender"><label>Female</label> 
+											<input type="radio" name="gender" value="Male" checked><label>Male</label> 
+											<input type="radio" name="gender" value="Female"><label>Female</label>
 										</td>
 									</tr>
-									<tr><td><label>City:</label></td> <td><input type="text" name="city"></td></tr>
-									<tr><td><label>Country:</label></td> 
+									<tr><td><label>Email:</label>			</td> <td><input type="text" name="email"></tr>
+									<tr><td><label>Phone:</label>			</td> <td><input type="text" name="phone"></tr>
+									<tr><td><label>Address:</label>			</td> <td><input type="text" name="address"></td></tr>
+									<tr><td><label>City:</label>			</td> <td><input type="text" name="city"></td></tr>
+									<tr><td><label>Country:</label>			</td> 
 										<td>
 											<select name="country"> 
 												<option>INDIA</option>
@@ -36,8 +41,15 @@
 											</select>
 										</td>
 									</tr>
-									<tr><td><label>Email:</label></td> <td><input type="text" name="email"></tr>
-									<tr><td colspan="2" align="right"><input type="submit" value="Submit">&nbsp;<input type="reset" value="Reset"></td></tr>
+									<tr><td><label>Zip:</label>				</td> <td><input type="text" maxlength="6" name="zip" onkeypress="return isDigit(event.charCode);"></td></tr>
+									<tr height="50">
+										<td></td>
+										<td align="left">
+											<input type="button" value="<< Back" onClick="history.go(-1)">
+											<input type="submit" value="Create">
+											<input type="reset" value="Reset">
+										</td>
+									</tr>
 								</table>
 							</form>
 						</div>
